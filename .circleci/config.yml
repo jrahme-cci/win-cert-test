@@ -11,8 +11,12 @@ jobs:
 
     steps:
       - checkout
-      - run: msbuild TestApp\TestApp.csproj /p:Configuration=Release /p:AppxBundle=Always /p:AppxBundlePlatforms="x86|x64|ARM" /p:BuildAppxUploadPackageForUap=true /p:AppxPackageSigningEnabled=false -restore
-      - run: (get-acl C:\Users\circleci\project\TestApp\TestApp.csproj).access | ft
+      - run: C:\Users\circleci\project\TestApp\scripts\ImportCert.ps1
+      - run: 
+          name: build
+          command: |
+            $ProgressPreference = "SilentlyContinue"
+            msbuild TestApp\TestApp.csproj /p:Configuration=Release /p:AppxBundle=Always /p:AppxBundlePlatforms="x86|x64|ARM" /p:BuildAppxUploadPackageForUap=true /p:AppxPackageSigningEnabled=true  /p:PackageCertificatePassword="testpassword" -restore
       - run:
           name: Compress AppPackages
           command: Compress-Archive -Path ./TestApp/AppPackages -DestinationPath ./AppPackages.zip
