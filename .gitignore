@@ -1,0 +1,25 @@
+
+#Ignore files that visual studio makes
+*.cachefile
+.vs/*
+AppPackages/
+_*.appx
+BundleArtifacts/
+_pkginfo.txt
+
+#Ignore NuGet downloaded packages and components
+Components/
+packages/
+
+#ignore thumbnails created by windows
+Thumbs.db
+
+#Ignore the build and object directories and all the junk they make
+obj/
+bin/
+
+
+#Make sure to leave everything in the Lib folder
+!Lib/*
+
+SimpleFreeCell/SimpleFreeCell.UWP/SimpleFreeCell.UWP.csproj.user
