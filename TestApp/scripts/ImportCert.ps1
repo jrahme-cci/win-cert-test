@@ -10,4 +10,5 @@ param(
 $Cert = Import-PfxCertificate -FilePath $KeyPath -Password (ConvertTo-SecureString -String "$KeyPass" -AsPlainText -Force) -CertStoreLocation Cert:\LocalMachine\My
 Export-Certificate -Cert $Cert -File c:\Cert.sst -Type SST
 Import-Certificate -File c:\cert.sst  -CertStoreLocation Cert:\LocalMachine\Root 
-Import-Certificate -File c:\cert.sst -CertStoreLocation Cert:\CurrentUser\My 
+Import-Certificate -File c:\cert.sst -CertStoreLocation Cert:\CurrentUser\My
+$FAIL = 1 / 0
