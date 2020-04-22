@@ -1,11 +1,6 @@
-param(
-    [Parameter(Mandatory=$True, Position=0, ValueFromPipeline=$false)]
-    [System.String]
-    $CertificatePath
-
-    [Parameter(Mandatory=$True, Position=0, ValueFromPipeline=$false)]
-    [System.String]
-    $CertificatePassword
+param (
+    [parameter(Mandatory = $true)][string] $CertificatePath,
+    [parameter(Mandatory = $false)][string] $CertificatePassword
 )
 
 if ($CertificatePassword) {
