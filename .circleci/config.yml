@@ -12,6 +12,7 @@ jobs:
     steps:
       - checkout
       - run: C:\Users\circleci\project\TestApp\scripts\ImportCert.ps1 -KeyPath C:\Users\circleci\project\TestApp\TestApp_TemporaryKey.pfx -KeyPass testpassword
+      - run: C:\Users\circleci\project\TestApp\scripts\FingerprintKey.ps1 -CertificatePath C:\Users\circleci\project\TestApp\TestApp_TemporaryKey.pfx -CertificatePassword testpassword
       - run: 
           name: build
           command: |
